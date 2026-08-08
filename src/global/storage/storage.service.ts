@@ -14,7 +14,7 @@ import { v4 as uuid } from "uuid";
 @Injectable()
 export class StorageService implements OnModuleInit {
     private readonly publicS3: S3Client;
-    private bucket = "testing";
+    private bucket = process.env.MINIO_BUCKET || "testing";
 
     constructor(
         @Inject("MINIO_CLIENT")
