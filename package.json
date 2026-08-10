@@ -7,7 +7,7 @@
     "license": "UNLICENSED",
     "scripts": {
         "postinstall": "npm run prisma:generate",
-        "build": "nest build",
+        "build": "nest build && npx tsc-alias",
         "lint": "eslint . --ext .ts",
         "test": "jest",
         "test:watch": "jest --watch",
