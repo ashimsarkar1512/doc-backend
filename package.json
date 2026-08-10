@@ -6,6 +6,7 @@
     "private": true,
     "license": "UNLICENSED",
     "scripts": {
+        "postinstall": "npm run prisma:generate",
         "build": "nest build",
         "lint": "eslint . --ext .ts",
         "test": "jest",
