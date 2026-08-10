@@ -11,7 +11,7 @@ import { CreatePaymentCardDto } from "./dto/payment-card.dto";
 @UseGuards(JwtAuthGuard)
 @Controller("payment-cards")
 export class PaymentCardController {
-    constructor(private readonly paymentCardService: PaymentCardService) { }
+    constructor(private readonly paymentCardService: PaymentCardService) {}
 
     @Post()
     @ApiOperation({ summary: "Add a new saved payment card" })
@@ -20,7 +20,7 @@ export class PaymentCardController {
         return {
             success: true,
             message: "Payment card added successfully",
-            data: card
+            data: card,
         };
     }
 
@@ -31,7 +31,7 @@ export class PaymentCardController {
         return {
             success: true,
             message: "Payment cards fetched successfully",
-            data: cards
+            data: cards,
         };
     }
 
@@ -42,7 +42,7 @@ export class PaymentCardController {
         return {
             success: true,
             message: "Payment card set as default successfully",
-            data: card
+            data: card,
         };
     }
 
@@ -53,22 +53,22 @@ export class PaymentCardController {
         return {
             success: true,
             message: "Payment card deleted successfully",
-            data: card
+            data: card,
         };
     }
 
     @Patch(":id")
     @ApiOperation({ summary: "Update a saved payment card" })
     async updateCard(
-        @CurrentUser() user: AuthenticatedUser, 
+        @CurrentUser() user: AuthenticatedUser,
         @Param("id") id: string,
-        @Body() dto: import('./dto/payment-card.dto').UpdatePaymentCardDto
+        @Body() dto: import("./dto/payment-card.dto").UpdatePaymentCardDto,
     ) {
         const card = await this.paymentCardService.updateCard(user.id, id, dto);
         return {
             success: true,
             message: "Payment card updated successfully",
-            data: card
+            data: card,
         };
     }
 }

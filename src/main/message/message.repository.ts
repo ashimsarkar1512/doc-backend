@@ -85,12 +85,16 @@ export class MessageRepository {
                             OR: [
                                 {
                                     patient: {
-                                        patientProfile: { name: { contains: search, mode: "insensitive" } },
+                                        patientProfile: {
+                                            name: { contains: search, mode: "insensitive" },
+                                        },
                                     },
                                 },
                                 {
                                     provider: {
-                                        doctorProfile: { name: { contains: search, mode: "insensitive" } },
+                                        doctorProfile: {
+                                            name: { contains: search, mode: "insensitive" },
+                                        },
                                     },
                                 },
                                 { service: { name: { contains: search, mode: "insensitive" } } },

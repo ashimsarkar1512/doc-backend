@@ -7,7 +7,7 @@ import { CreatePaymentCardDto } from "./dto/payment-card.dto";
 export class PaymentCardService {
     constructor(
         private readonly prisma: PrismaService,
-        private readonly cloverService: CloverService
+        private readonly cloverService: CloverService,
     ) {}
 
     async createCard(userId: string, dto: CreatePaymentCardDto) {
@@ -107,7 +107,11 @@ export class PaymentCardService {
         return { success: true, message: "Payment card deleted successfully." };
     }
 
-    async updateCard(userId: string, cardId: string, dto: import('./dto/payment-card.dto').UpdatePaymentCardDto) {
+    async updateCard(
+        userId: string,
+        cardId: string,
+        dto: import("./dto/payment-card.dto").UpdatePaymentCardDto,
+    ) {
         const card = await this.prisma.paymentCard.findFirst({
             where: { id: cardId, userId },
         });

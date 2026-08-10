@@ -52,14 +52,16 @@ export class PaymentInfoDto {
     method: string;
 
     @ApiPropertyOptional({
-        description: "ID of a previously saved payment card. If provided, other card details are not required.",
+        description:
+            "ID of a previously saved payment card. If provided, other card details are not required.",
     })
     @IsString()
     @IsOptional()
     savedCardId?: string;
 
     @ApiPropertyOptional({
-        description: "Clover secure token for frontend tokenization. Recommended over sending raw card data.",
+        description:
+            "Clover secure token for frontend tokenization. Recommended over sending raw card data.",
     })
     @IsString()
     @IsOptional()

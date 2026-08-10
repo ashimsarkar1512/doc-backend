@@ -170,7 +170,9 @@ export class ProposalService {
             last4 = dto.cardNumber.replace(/\s+/g, "").slice(-4);
             brand = detectCardBrand(dto.cardNumber);
         } else {
-            throw new BadRequestException("Must provide savedCardId, cloverToken, or complete raw card details.");
+            throw new BadRequestException(
+                "Must provide savedCardId, cloverToken, or complete raw card details.",
+            );
         }
 
         // Charge via Clover

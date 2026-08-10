@@ -81,8 +81,14 @@ export class PaymentService {
     async checkout(userId: string, dto: CheckoutDto) {
         // 1. Validate card info upfront if provided
         if (!dto.paymentInfo.savedCardId && !dto.paymentInfo.cloverToken) {
-            if (!dto.paymentInfo.cardNumber || !dto.paymentInfo.expiredDate || !dto.paymentInfo.cvv) {
-                throw new BadRequestException("Must provide savedCardId, cloverToken, or complete raw card details.");
+            if (
+                !dto.paymentInfo.cardNumber ||
+                !dto.paymentInfo.expiredDate ||
+                !dto.paymentInfo.cvv
+            ) {
+                throw new BadRequestException(
+                    "Must provide savedCardId, cloverToken, or complete raw card details.",
+                );
             }
             validateCardInfo(
                 dto.paymentInfo.cardNumber,

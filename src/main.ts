@@ -24,7 +24,7 @@ async function bootstrap() {
             "https://doc-frontend-pied.vercel.app",
             "https://localhost:3000",
             "https://doc-frontend-psi.vercel.app",
-            "https://doc-dashboard-smoky.vercel.app"
+            "https://doc-dashboard-smoky.vercel.app",
         ],
         methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
         credentials: true,
